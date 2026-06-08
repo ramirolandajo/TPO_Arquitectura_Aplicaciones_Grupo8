@@ -1,5 +1,6 @@
 package com.uade.inventory.infrastructure.adapter.in.web;
 
+import com.uade.inventory.domain.exception.ProductNotFoundException;
 import com.uade.inventory.domain.model.Product;
 import com.uade.inventory.domain.port.in.ProductUseCase;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +25,9 @@ public class InventoryController {
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
-        return productUseCase.getProductById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        Product product = productUseCase.getProductById(id)
+                .orElseThrow(() -> new ProductNotFoundException(id));
+        return ResponseEntity.ok(product);
     }
 
     @PostMapping("/products")

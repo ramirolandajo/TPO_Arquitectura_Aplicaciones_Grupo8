@@ -34,7 +34,7 @@ Content-Type: application/json
 ### INVENTORY SERVICE — vía API Gateway (con JWT)
 ### ===================================================
 
-@token = Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaWF0IjoxNzgwODY5MzgwLCJleHAiOjE3ODA4NzI5ODB9.yDMRDYZijjtk50sLM2sBS2XcKnuI9riRvA3Rn2reCGqgvX4TBAZgsW-8QQ0e6ntl
+@token = Bearer <Pegar Token Aca>
 
 ### Obtener todos los productos
 GET {{gatewayUrl}}/api/inventory/products
@@ -60,7 +60,7 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-  "name": "Producto Test 2",
+  "name": "Producto Test",
   "quantity": 10,
   "price": 99.99
 }
@@ -73,7 +73,7 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-  "product": "Producto Test 2",
+  "product": "Producto Test",
   "quantity": 7,
   "customer": "admin",
   "status": "PENDING"
